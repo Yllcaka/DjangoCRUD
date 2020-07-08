@@ -1,0 +1,130 @@
+
+
+:root {
+    --smthTrans: 0.1s ease-in-out;
+}
+
+header{
+    background-color: rgb(78, 196, 156);
+    
+}
+a{
+    text-decoration: none !important;
+}
+header a{
+    color: rgb(154, 231, 206);
+    
+    margin-right: 10px !important;
+    transition: 0.1s ease-in-out;
+}
+
+header a:hover, .navbar-brand{
+    color: rgb(245, 229, 229);
+}
+
+.navbar-brand:hover{
+    color: white;
+}
+
+article{
+    margin-top: 10px;
+}
+article .media-body{
+    background-color: rgb(187, 248, 228);
+    border-radius: 4px;
+    padding: 5px;
+    /* width: 50% !important; */
+}
+
+.media-body a {
+    color: rgb(58, 57, 57);
+}
+.authors {
+    color: rgb(61, 61, 61) !important;
+}
+.media-body hr{
+    margin-top: 2px !important;
+    margin: 5px;
+}
+small{
+    /* display: block; */
+    margin-left: 10px;
+    font-size: 10px;
+    color: #919191;
+    font-weight: bold;
+    transition: 0.1s ease-in-out;
+}
+
+.account-img , .account-post-img,.profile-page-picture{
+    display: inline-block;
+    width: 125px;
+    height: 125px;
+    border: 2px solid black;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 20px;
+    transition: var(--smthTrans);
+}
+.account-post-img{
+    width: 70px;
+    height: 70px;
+    float: left;
+    margin-bottom: 5px;
+}
+.account-img:hover,
+.account-post-img:hover,
+.profile-page-picture:hover
+{
+    border-color: aquamarine;
+}
+
+.profile-page-picture{
+    width: 40px;
+    height: 40px;
+    display: inline-block;
+    vertical-align: middle;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+nav .account-img{
+    margin-right: 0;
+    width: 40px;
+    height: 40px;
+}
+
+.profile{
+    border: 2px solid rgb(187, 248, 228);
+    background-color: rgb(187, 248, 228);
+    margin: 10px auto;
+    padding: 10px;
+    border-radius: 10px;
+    min-height: 500px;
+}
+.post-link{
+    transition: var(--smthTrans);
+}
+.post-link:hover{
+    color: rgb(100, 211, 174);
+}
+.media-body p {
+    white-space: initial;
+    word-wrap: break-word
+}
+.pageSelect{
+    margin-top: 20px;
+}
+.pageSelect div{
+    
+    display: inline-block !important;
+    margin-right: 5px;
+    text-align: center;
+    
+}
+.pageSelect div a{
+    display: table-cell;
+    vertical-align: middle;
+    border-radius: 10%;
+    min-width: 40px;
+    height: 40px;
+}

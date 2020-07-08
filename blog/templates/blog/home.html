@@ -1,0 +1,44 @@
+{% extends "blog/base.html" %}
+{% block content %}
+    {% for post in posts %}
+        <article >
+            
+            <div class="media-body">
+                <img class="rounded-cirle account-post-img" src="{{ post.author.profile.image.url }}" alt="">
+                <div>
+                    <a href="{% url 'userPost' post.author.username %}" class="mr-2 authors">{{ post.author }}</a>
+                    <small>{{post.datePosted|date:"F d, Y"}}</small>
+                </div>
+                <hr>
+                <h2><a class="post-link" href="{% url 'postDetail' post.id %}">{{ post.title }}</a></h2>
+                <p>{{ post.content }}</p>
+            </div>
+        </article>
+    {% endfor %}
+    {% if is_paginated %}
+        <!-- <h1>{{ page_obj }}</h1> --> <!--page_obj pra eshte bet numri i pages p.sh. <Page 1 of 6> -->
+        <div class="pageSelect">
+            {% if page_obj.has_previous %}
+                <div><a class="btn btn-outline-info mb-4" href="?page=1">First</a></div>
+                <div><a class="btn btn-outline-info mb-4" href="?page={{ page_obj.previous_page_number }}">Previous</a></div>
+                
+            {% endif %}
+
+            {% for num in page_obj.paginator.page_range %}
+                {% if page_obj.number == num %}
+                    <div><a class="btn btn-info mb-4" href="?page={{ num }}">{{ num }}</a></div>
+                    
+                {% elif num > page_obj.number|add:"-3" and num < page_obj.number|add:"3" %}
+                    <div><a class="btn btn-outline-info mb-4" href="?page={{ num }}">{{ num }}</a></div>
+                {% endif %}
+            {% endfor %}
+
+            {% if page_obj.has_next %}
+                <div><a class="btn btn-outline-info mb-4" href="?page={{ page_obj.next_page_number }}">Next</a></div>
+                <div><a class="btn btn-outline-info mb-4" href="?page={{ page_obj.paginator.num_pages }}">Last</a></div>
+            
+        {% endif %}
+        </div>
+        
+    {% endif %}
+{% endblock content%}
